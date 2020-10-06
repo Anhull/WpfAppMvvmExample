@@ -1,0 +1,16 @@
+﻿<Window x:Class="WpfAppMvvm.View.OrdAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppMvvm.View"
+        mc:Ignorable="d"
+        Title="Добавление заказа" Height="212" Width="358">
+    <Grid>
+        <Label x:Name="label" Content="Наименование товара" HorizontalAlignment="Left" Margin="24,14,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Сотрудник" HorizontalAlignment="Left" Margin="24,68,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" Text="{Binding NameOfGood, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="177,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <ComboBox x:Name="comboBox" ItemsSource="{Binding Path=OfEmployes}" DisplayMemberPath="EmpSName" SelectedValuePath="Id" SelectedValue="{Binding Path=InsOrdEmp}" HorizontalAlignment="Left" Margin="177,68,0,0" VerticalAlignment="Top" Width="140"/>
+        <Button x:Name="button" Content="Добавить" Command="{Binding AddOrdCommand}" HorizontalAlignment="Left" Margin="177,117,0,0" VerticalAlignment="Top" Width="140"/>
+    </Grid>
+</Window>

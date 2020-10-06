@@ -53,14 +53,14 @@ namespace WpfAppMvvm.ViewModel
                 _selectOrder = null;
                 if (SelectEmployee != null)
                 {
-                    IsEmpEdEnabled = true;
-                    EdtYear = SelectEmployee.DateOfBirth.Year;
-                    EdtMonth = SelectEmployee.DateOfBirth.Month;
-                    EdtDay = SelectEmployee.DateOfBirth.Day;
-                    EdtMName = SelectEmployee.EmpMName;
-                    EdtName = SelectEmployee.EmpName;
-                    EdtSName = SelectEmployee.EmpSName;
-                    EdtDep = SelectEmployee.InDep;
+                    IsEmpEditEnabled = true;
+                    EdtEmpYear = SelectEmployee.DateOfBirth.Year;
+                    EdtEmpMonth = SelectEmployee.DateOfBirth.Month;
+                    EdtEmpDay = SelectEmployee.DateOfBirth.Day;
+                    EdtEmpMName = SelectEmployee.EmpMName;
+                    EdtEmpName = SelectEmployee.EmpName;
+                    EdtEmpSName = SelectEmployee.EmpSName;
+                    EdtEmpDep = SelectEmployee.EmpInDep;
                     if (SelectEmployee.SexValue == Employee.ChooseOfSex.Male)
                     {
                         EmpSexEdtMale = true;
@@ -72,16 +72,16 @@ namespace WpfAppMvvm.ViewModel
                 }
                 else
                 {
-                    IsEmpEdEnabled = false;
-                    EdtYear = null;
-                    EdtMonth = null;
-                    EdtDay = null;
-                    EdtMName = String.Empty;
-                    EdtName = String.Empty;
-                    EdtSName = String.Empty;
+                    IsEmpEditEnabled = false;
+                    EdtEmpYear = null;
+                    EdtEmpMonth = null;
+                    EdtEmpDay = null;
+                    EdtEmpMName = String.Empty;
+                    EdtEmpName = String.Empty;
+                    EdtEmpSName = String.Empty;
                     try
                     {
-                        EdtDep = 0;
+                        EdtEmpDep = 0;
                     }
                     catch { }
                     EmpSexEdtMale = true;
@@ -101,15 +101,15 @@ namespace WpfAppMvvm.ViewModel
                 _selectOrder = null;
                 if (SelectDepartment != null)
                 {
-                    IsDepEdEnabled = true;
+                    IsDepEditEnabled = true;
                     EdtDepName = SelectDepartment.DepName;
-                    EdtEmpChief = SelectDepartment.EmpChief;
+                    EdtDepEmpChief = SelectDepartment.DepEmpChief;
                 }
                 else
                 {
-                    IsDepEdEnabled = false;
+                    IsDepEditEnabled = false;
                     EdtDepName = String.Empty;
-                    EdtEmpChief = 0;
+                    EdtDepEmpChief = 0;
                 }
             }
         }
@@ -126,14 +126,14 @@ namespace WpfAppMvvm.ViewModel
                 _selectEmployee = null;
                 if (SelectOrder != null)
                 {
-                    IsOrdEdEnabled = true;
-                    EdtNameOfGood = SelectOrder.Good;
-                    EdtOrdEmp = SelectOrder.Emp;
+                    IsOrdEditEnabled = true;
+                    EdtOrdGood = SelectOrder.OrdGood;
+                    EdtOrdEmp = SelectOrder.OrdEmp;
                 }
                 else
                 {
-                    IsOrdEdEnabled = false;
-                    EdtNameOfGood = String.Empty;
+                    IsOrdEditEnabled = false;
+                    EdtOrdGood = String.Empty;
                     EdtOrdEmp = 0;
                 }
             }
@@ -143,63 +143,63 @@ namespace WpfAppMvvm.ViewModel
         //---------------
         //Employes-------
         //---------------
-        private string _insName;
-        public string InsName
+        private string _insEmpName;
+        public string InsEmpName
         {
-            get { return _insName; }
+            get { return _insEmpName; }
             set
             {
-                _insName = value;
+                _insEmpName = value;
                 RaisePropertyChangedEvent();
             }
         }
-        private string _insSName;
-        public string InsSName
+        private string _insEmpSName;
+        public string InsEmpSName
         {
-            get { return _insSName; }
+            get { return _insEmpSName; }
             set
             {
-                _insSName = value;
+                _insEmpSName = value;
                 RaisePropertyChangedEvent();
             }
         }
-        private string _insMName;
-        public string InsMName
+        private string _insEmpMName;
+        public string InsEmpMName
         {
-            get { return _insMName; }
+            get { return _insEmpMName; }
             set
             {
-                _insMName = value;
+                _insEmpMName = value;
                 RaisePropertyChangedEvent();
             }
         }
-        private Nullable<int> _insDay;
-        public Nullable<int> InsDay
+        private Nullable<int> _insEmpDay;
+        public Nullable<int> InsEmpDay
         {
-            get { return _insDay; }
+            get { return _insEmpDay; }
             set
             {
-                _insDay = value;
+                _insEmpDay = value;
                 RaisePropertyChangedEvent();
             }
         }
-        private Nullable<int> _insMonth;
-        public Nullable<int> InsMonth
+        private Nullable<int> _insEmpMonth;
+        public Nullable<int> InsEmpMonth
         {
-            get { return _insMonth; }
+            get { return _insEmpMonth; }
             set
             {
-                _insMonth = value;
+                _insEmpMonth = value;
                 RaisePropertyChangedEvent();
             }
         }
-        private Nullable<int> _insYear;
-        public Nullable<int> InsYear
+        private Nullable<int> _insEmpYear;
+        public Nullable<int> InsEmpYear
         {
-            get { return _insYear; }
+            get { return _insEmpYear; }
             set
             {
-                _insYear = value;
+                _insEmpYear = value;
                 RaisePropertyChangedEvent();
             }
         }     
@@ -231,26 +231,26 @@ namespace WpfAppMvvm.ViewModel
                 }
             }
         }
-        private int _insDep;
-        public int InsDep
+        private Nullable<int> _insEmpDep;
+        public Nullable<int> InsEmpDep
         {
-            get { return _insDep; }
+            get { return _insEmpDep; }
             set
             {
-                _insDep = value;
+                _insEmpDep = value;
                 RaisePropertyChangedEvent();
             }
         }
         //-------------------
         //Department---------
         //-------------------
-        private int _insEmpChief;
-        public int InsEmpChief
+        private Nullable<int> _insDepEmpChief;
+        public Nullable<int> InsDepEmpChief
         {
-            get { return _insEmpChief; }
+            get { return _insDepEmpChief; }
             set
             {
-                _insEmpChief = value;
+                _insDepEmpChief = value;
                 RaisePropertyChangedEvent();
             }
         }
@@ -267,8 +267,8 @@ namespace WpfAppMvvm.ViewModel
         //------
         //Order
         //------
-        private int _insOrdEmp;
-        public int InsOrdEmp
+        private Nullable<int> _insOrdEmp;
+        public Nullable<int> InsOrdEmp
         {
             get { return _insOrdEmp; }
             set
@@ -277,13 +277,13 @@ namespace WpfAppMvvm.ViewModel
                 RaisePropertyChangedEvent();
             }
         }
-        private string _nameOfGood;
-        public string NameOfGood
+        private string _insOrdGood;
+        public string InsOrdGood
         {
-            get { return _nameOfGood; }
+            get { return _insOrdGood; }
             set
             {
-                _nameOfGood = value;
+                _insOrdGood = value;
                 RaisePropertyChangedEvent();
             }
         }
@@ -292,63 +292,63 @@ namespace WpfAppMvvm.ViewModel
         //-------------------
         //Employes-----------
         //-------------------
-        private string _edtName;
-        public string EdtName
+        private string _edtEmpName;
+        public string EdtEmpName
         {
-            get { return _edtName; }
+            get { return _edtEmpName; }
             set
             {
-                _edtName = value;
+                _edtEmpName = value;
                 RaisePropertyChangedEvent();
             }
         }
-        private string _edtSName;
-        public string EdtSName
+        private string _edtEmpSName;
+        public string EdtEmpSName
         {
-            get { return _edtSName; }
+            get { return _edtEmpSName; }
             set
             {
-                _edtSName = value;
+                _edtEmpSName = value;
                 RaisePropertyChangedEvent();
             }
         }
-        private string _edtMName;
-        public string EdtMName
+        private string _edtEmpMName;
+        public string EdtEmpMName
         {
-            get { return _edtMName; }
+            get { return _edtEmpMName; }
             set
             {
-                _edtMName = value;
+                _edtEmpMName = value;
                 RaisePropertyChangedEvent();
             }
         }
-        private Nullable<int> _edtDay;
-        public Nullable<int> EdtDay
+        private Nullable<int> _edtEmpDay;
+        public Nullable<int> EdtEmpDay
         {
-            get { return _edtDay; }
+            get { return _edtEmpDay; }
             set
             {
-                _edtDay = value;
+                _edtEmpDay = value;
                 RaisePropertyChangedEvent();
             }
         }
-        private Nullable<int> _edtMonth;
-        public Nullable<int> EdtMonth
+        private Nullable<int> _edtEmpMonth;
+        public Nullable<int> EdtEmpMonth
         {
-            get { return _edtMonth; }
+            get { return _edtEmpMonth; }
             set
             {
-                _edtMonth = value;
+                _edtEmpMonth = value;
                 RaisePropertyChangedEvent();
             }
         }
-        private Nullable<int> _edtYear;
-        public Nullable<int> EdtYear
+        private Nullable<int> _edtEmpYear;
+        public Nullable<int> EdtEmpYear
         {
-            get { return _edtYear; }
+            get { return _edtEmpYear; }
             set
             {
-                _edtYear = value;
+                _edtEmpYear = value;
                 RaisePropertyChangedEvent();
             }
         }
@@ -380,36 +380,36 @@ namespace WpfAppMvvm.ViewModel
                 }
             }
         }
-        private int _edtDep;
-        public int EdtDep
+        private Nullable<int> _edtEmpDep;
+        public Nullable<int> EdtEmpDep
         {
-            get { return _edtDep; }
+            get { return _edtEmpDep; }
             set
             {
-                _edtDep = value;
+                _edtEmpDep = value;
                 RaisePropertyChangedEvent();
             }
         }
-        private bool _IsEmpEdEnabled;
-        public bool IsEmpEdEnabled
+        private bool _IsEmpEditEnabled;
+        public bool IsEmpEditEnabled
         {
-            get { return _IsEmpEdEnabled; }
+            get { return _IsEmpEditEnabled; }
             set
             {
-                _IsEmpEdEnabled = value;
+                _IsEmpEditEnabled = value;
                 RaisePropertyChangedEvent();
             }
         }
         //-------------------
         //Department---------
         //-------------------
-        private int _edtEmpChief;
-        public int EdtEmpChief
+        private Nullable<int> _edtDepEmpChief;
+        public Nullable<int> EdtDepEmpChief
         {
-            get { return _edtEmpChief; }
+            get { return _edtDepEmpChief; }
             set
             {
-                _edtEmpChief = value;
+                _edtDepEmpChief = value;
                 RaisePropertyChangedEvent();
             }
         }
@@ -423,21 +423,21 @@ namespace WpfAppMvvm.ViewModel
                 RaisePropertyChangedEvent();
             }
         }
-        private bool _IsDepEdEnabled;
-        public bool IsDepEdEnabled
+        private bool _IsDepEditEnabled;
+        public bool IsDepEditEnabled
         {
-            get { return _IsDepEdEnabled; }
+            get { return _IsDepEditEnabled; }
             set
             {
-                _IsDepEdEnabled = value;
+                _IsDepEditEnabled = value;
                 RaisePropertyChangedEvent();
             }
         }
         //-----
         //Order
         //-----
-        private int _edtOrdEmp;
-        public int EdtOrdEmp
+        private Nullable<int> _edtOrdEmp;
+        public Nullable<int> EdtOrdEmp
         {
             get { return _edtOrdEmp; }
             set
@@ -446,23 +446,23 @@ namespace WpfAppMvvm.ViewModel
                 RaisePropertyChangedEvent();
             }
         }
-        private string _edtNameOfGood;
-        public string EdtNameOfGood
+        private string _edtOrdGood;
+        public string EdtOrdGood
         {
-            get { return _edtNameOfGood; }
+            get { return _edtOrdGood; }
             set
             {
-                _edtNameOfGood = value;
+                _edtOrdGood = value;
                 RaisePropertyChangedEvent();
             }
         }
-        private bool _IsOrdEdEnabled;
-        public bool IsOrdEdEnabled
+        private bool _IsOrdEditEnabled;
+        public bool IsOrdEditEnabled
         {
-            get { return _IsOrdEdEnabled; }
+            get { return _IsOrdEditEnabled; }
             set
             {
-                _IsOrdEdEnabled = value;
+                _IsOrdEditEnabled = value;
                 RaisePropertyChangedEvent();
             }
         }
@@ -485,14 +485,17 @@ namespace WpfAppMvvm.ViewModel
         //очистка вводимой информации
         public void ClearAdder()
         {
-            InsYear = null;
-            InsMonth = null;
-            InsDay = null;
-            InsMName = String.Empty;
-            InsName = String.Empty;
-            InsSName = String.Empty;
-            InsDepName = String.Empty;
-            NameOfGood = String.Empty;
+            InsDepEmpChief = 0;
+            InsEmpDep = 0;
+            InsOrdEmp = 0;
+            InsEmpYear = null;
+            InsEmpMonth = null;
+            InsEmpDay = null;
+            InsEmpMName = null;
+            InsEmpName = null;
+            InsEmpSName = null;
+            InsDepName = null;
+            InsOrdGood = null;
         }
         //Конструктор класса
         public VMapp()
@@ -505,7 +508,6 @@ namespace WpfAppMvvm.ViewModel
             OfOrders.CollectionChanged += delegate { RaisePropertyChangedEvent(); };
             ClearAdder();
             FillDataGrid();
-            EmpSexInsMale = true;
         }
 
         DelegateCommand addEmpCommand;
@@ -521,7 +523,7 @@ namespace WpfAppMvvm.ViewModel
         public DelegateCommand AddEmpCommand => addEmpCommand ??
             (addEmpCommand = new DelegateCommand(() =>
             {
-                if (InsName != null && ( 0 < InsDay ) && (InsDay <= 31) && (0 < InsMonth) && (InsMonth <= 12) && (0 < InsYear) && (InsYear <= 9999))
+                if (InsEmpName != null && ( 0 < InsEmpDay ) && (InsEmpDay <= 31) && (0 < InsEmpMonth) && (InsEmpMonth <= 12) && (0 < InsEmpYear) && (InsEmpYear <= 9999))
                 {
                     try
                     {
@@ -529,11 +531,11 @@ namespace WpfAppMvvm.ViewModel
                         {
                             if (EmpSexInsMale == true)
                             {
-                                db.Employes.Add(new Employee() { EmpName = InsName, EmpSName = InsSName, EmpMName = InsMName, DateOfBirth = new DateTime((int)InsYear, (int)InsMonth, (int)InsDay), SexValue = Employee.ChooseOfSex.Male, InDep = InsDep });
+                                db.Employes.Add(new Employee() { EmpName = InsEmpName, EmpSName = InsEmpSName, EmpMName = InsEmpMName, DateOfBirth = new DateTime((int)InsEmpYear, (int)InsEmpMonth, (int)InsEmpDay), SexValue = Employee.ChooseOfSex.Male, EmpInDep = (int)InsEmpDep });
                             }
                             else
                             {
-                                db.Employes.Add(new Employee() { EmpName = InsName, EmpSName = InsSName, EmpMName = InsMName, DateOfBirth = new DateTime((int)InsYear, (int)InsMonth, (int)InsDay), SexValue = Employee.ChooseOfSex.Fermale, InDep = InsDep });
+                                db.Employes.Add(new Employee() { EmpName = InsEmpName, EmpSName = InsEmpSName, EmpMName = InsEmpMName, DateOfBirth = new DateTime((int)InsEmpYear, (int)InsEmpMonth, (int)InsEmpDay), SexValue = Employee.ChooseOfSex.Fermale, EmpInDep = (int)InsEmpDep });
                             }
                             db.SaveChanges();
                             OfEmployes.Clear();
@@ -541,7 +543,10 @@ namespace WpfAppMvvm.ViewModel
                             ClearAdder();
                         }
                     }
-                    catch { }
+                    catch(Exception ex) 
+                    {
+                        Console.WriteLine(ex);
+                    }
                 }
                 else
                 {
@@ -557,7 +562,7 @@ namespace WpfAppMvvm.ViewModel
                     {
                         using (ApplicationContext db = new ApplicationContext())
                         {
-                            db.Add(new Department() { DepName = InsDepName, EmpChief = InsEmpChief });
+                            db.Add(new Department() { DepName = InsDepName, DepEmpChief = (int)InsDepEmpChief });
                             db.SaveChanges();
                             OfDepartments.Clear();
                             db.Departments.ToList().ForEach(x => OfDepartments.Add(x));
@@ -574,13 +579,13 @@ namespace WpfAppMvvm.ViewModel
         public DelegateCommand AddOrdCommand => addOrdCommand ??
             (addOrdCommand = new DelegateCommand(() =>
             {
-                if (NameOfGood != null)
+                if (InsOrdGood != null)
                 {
                     try
                     {
                         using (ApplicationContext db = new ApplicationContext())
                         {
-                            db.Add(new Order() { Good = NameOfGood, Emp = InsOrdEmp });
+                            db.Add(new Order() { OrdGood = InsOrdGood, OrdEmp = (int)InsOrdEmp });
                             db.SaveChanges();
                             OfOrders.Clear();
                             db.Orders.ToList().ForEach(x => OfOrders.Add(x));
@@ -605,10 +610,10 @@ namespace WpfAppMvvm.ViewModel
                         using (ApplicationContext db = new ApplicationContext())
                         {
                             var emp = db.Employes.Where(c => c.Id == SelectEmployee.Id).FirstOrDefault();
-                            emp.EmpName = EdtName;
-                            emp.EmpMName = EdtMName;
-                            emp.EmpSName = EdtSName;
-                            emp.DateOfBirth = new DateTime((int)EdtYear, (int)EdtMonth, (int)EdtDay);
+                            emp.EmpName = EdtEmpName;
+                            emp.EmpMName = EdtEmpMName;
+                            emp.EmpSName = EdtEmpSName;
+                            emp.DateOfBirth = new DateTime((int)EdtEmpYear, (int)EdtEmpMonth, (int)EdtEmpDay);
                             if (EmpSexEdtMale == true)
                             {
                                 emp.SexValue = Employee.ChooseOfSex.Male;
@@ -617,7 +622,7 @@ namespace WpfAppMvvm.ViewModel
                             {
                                 emp.SexValue = Employee.ChooseOfSex.Fermale;
                             }
-                            emp.InDep = EdtDep;
+                            emp.EmpInDep = (int)EdtEmpDep;
                             db.SaveChanges();
                             OfEmployes.Clear();
                             db.Employes.ToList().ForEach(x => OfEmployes.Add(x));
@@ -627,10 +632,6 @@ namespace WpfAppMvvm.ViewModel
                     {
                         Console.WriteLine(ex);
                     }
-                }
-                else
-                {
-                    Console.WriteLine("Не выбран работник!");
                 }
             }));
         public DelegateCommand EditDepCommand => editDepCommand ??
@@ -644,7 +645,7 @@ namespace WpfAppMvvm.ViewModel
                         {
                             var emp = db.Departments.Where(c => c.DepartmentId == SelectDepartment.DepartmentId).FirstOrDefault();
                             emp.DepName = EdtDepName;
-                            emp.EmpChief = EdtEmpChief;
+                            emp.DepEmpChief = (int)EdtDepEmpChief;
                             db.SaveChanges();
                             OfDepartments.Clear();
                             db.Departments.ToList().ForEach(x => OfDepartments.Add(x));
@@ -654,10 +655,6 @@ namespace WpfAppMvvm.ViewModel
                     {
                         Console.WriteLine(ex);
                     }
-                }
-                else
-                {
-                    Console.WriteLine("Не выбрано подразделение!");
                 }
             }));
         public DelegateCommand EditOrdCommand => editOrdCommand ??
@@ -670,8 +667,8 @@ namespace WpfAppMvvm.ViewModel
                         using (ApplicationContext db = new ApplicationContext())
                         {
                             var emp = db.Orders.Where(c => c.OrderId == SelectOrder.OrderId).FirstOrDefault();
-                            emp.Good = EdtNameOfGood;
-                            emp.Emp = EdtOrdEmp;
+                            emp.OrdGood = EdtOrdGood;
+                            emp.OrdEmp = (int)EdtOrdEmp;
                             db.SaveChanges();
                             OfOrders.Clear();
                             db.Orders.ToList().ForEach(x => OfOrders.Add(x));
@@ -681,10 +678,6 @@ namespace WpfAppMvvm.ViewModel
                     {
                         Console.WriteLine(ex);
                     }
-                }
-                else
-                {
-                    Console.WriteLine("Не выбран заказ!");
                 }
             }));
         //Команда удаления
@@ -735,10 +728,6 @@ namespace WpfAppMvvm.ViewModel
                         }
                     }
                     catch { }
-                }
-                else
-                {
-                    Console.WriteLine("Вы ничего не выбрали!");
                 }
             }));
     }

@@ -8,7 +8,7 @@
     <Grid>
         <Label x:Name="label" Content="Наименование товара" HorizontalAlignment="Left" Margin="24,14,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Сотрудник" HorizontalAlignment="Left" Margin="24,68,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" Text="{Binding EdtNameOfGood, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="177,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <TextBox x:Name="textBox" Text="{Binding EdtOrdGood, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="177,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
         <ComboBox x:Name="comboBox" ItemsSource="{Binding Path=OfEmployes}" DisplayMemberPath="EmpSName" SelectedValuePath="Id" SelectedValue="{Binding Path=EdtOrdEmp}" HorizontalAlignment="Left" Margin="177,68,0,0" VerticalAlignment="Top" Width="140"/>
         <Button x:Name="button" Content="Редактировать" Command="{Binding EditOrdCommand}" HorizontalAlignment="Left" Margin="177,117,0,0" VerticalAlignment="Top" Width="140"/>
     </Grid>

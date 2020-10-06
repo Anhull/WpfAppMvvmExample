@@ -7,13 +7,13 @@ namespace WpfAppMvvm.Model
     {
         public int DepartmentId { get; set; }
         public string DepName { get; set; }
-        public int EmpChief { get; set; }
+        public int DepEmpChief { get; set; }
     }
     public class Order
     {
         public int OrderId { get; set; }
-        public string Good { get; set; }
-        public int Emp { get; set; }
+        public string OrdGood { get; set; }
+        public int OrdEmp { get; set; }
     }
 
     public class Employee
@@ -30,6 +30,6 @@ namespace WpfAppMvvm.Model
             Fermale
         }
         public ChooseOfSex SexValue { get; set; }
-        public int InDep { get; set; }
+        public int EmpInDep { get; set; }
     }
 }

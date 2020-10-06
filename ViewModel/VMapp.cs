@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using WpfAppMvvm.Model;
 
 namespace WpfAppMvvm.ViewModel 
@@ -550,7 +551,7 @@ namespace WpfAppMvvm.ViewModel
                 }
                 else
                 {
-                    Console.WriteLine("Неверно указаны данные!");
+                    MessageBox.Show("Неверно указаны данные!");
                 }
             }));
         public DelegateCommand AddDepCommand => addDepCommand ??
@@ -573,7 +574,7 @@ namespace WpfAppMvvm.ViewModel
                 }
                 else
                 {
-                    Console.WriteLine("Неверно указаны данные!");
+                    MessageBox.Show("Неверно указаны данные!");
                 }
             }));
         public DelegateCommand AddOrdCommand => addOrdCommand ??
@@ -596,14 +597,14 @@ namespace WpfAppMvvm.ViewModel
                 }
                 else
                 {
-                    Console.WriteLine("Неверно указаны данные!");
+                    MessageBox.Show("Неверно указаны данные!");
                 }
             }));
         //Команды редактирования
         public DelegateCommand EditEmpCommand => editEmpCommand ??
             (editEmpCommand = new DelegateCommand(() =>
             {
-                if (SelectEmployee != null)
+                if (SelectEmployee != null && EdtEmpName != null && EdtEmpName != String.Empty)
                 {
                     try
                     {
@@ -633,11 +634,15 @@ namespace WpfAppMvvm.ViewModel
                         Console.WriteLine(ex);
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Неверно указаны данные!");
+                }
             }));
         public DelegateCommand EditDepCommand => editDepCommand ??
             (editDepCommand = new DelegateCommand(() =>
             {
-                if (SelectDepartment != null)
+                if (SelectDepartment != null && EdtDepName != null && EdtDepName != String.Empty)
                 {
                     try
                     {
@@ -656,11 +661,15 @@ namespace WpfAppMvvm.ViewModel
                         Console.WriteLine(ex);
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Неверно указаны данные!");
+                }
             }));
         public DelegateCommand EditOrdCommand => editOrdCommand ??
             (editOrdCommand = new DelegateCommand(() =>
             {
-                if (SelectOrder != null)
+                if (SelectOrder != null && EdtOrdGood != null && EdtOrdGood != String.Empty)
                 {
                     try
                     {
@@ -678,6 +687,10 @@ namespace WpfAppMvvm.ViewModel
                     {
                         Console.WriteLine(ex);
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Неверно указаны данные!");
                 }
             }));
         //Команда удаления
